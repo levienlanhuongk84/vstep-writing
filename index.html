@@ -173,6 +173,9 @@
   .tl .seg .t { font-family: var(--font-mono); font-weight: 700; color: var(--purple-ink); font-size: .9em; }
   .tl .seg.t2 .t { color: var(--orange-ink); }
   .tl .seg p { font-size: .88em; color: var(--ink-2); margin-top: 3px; }
+  .tl .seg ul { list-style: none; padding: 0; margin: 4px 0 0; }
+  .tl .seg li { font-size: .88em; color: var(--ink-2); padding-left: .95em; position: relative; margin-block: 2px; }
+  .tl .seg li::before { content: "–"; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
 
   /* steps / flow */
   .flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
@@ -202,7 +205,11 @@
   .prompt ul.dash li { padding-left: 1.2em; position: relative; margin-block: .2em; font-size: .95em; }
   .prompt ul.dash li::before { content: "–"; position: absolute; left: .2em; color: var(--orange); font-weight: 700; }
   .prompt .instr { color: var(--ink-2); font-style: italic; }
+  .prompt .ann-btn { display: inline-flex; align-items: center; justify-content: center; width: 15px; height: 15px; margin-left: 5px; vertical-align: middle; border: 1px solid var(--orange); border-radius: 50%; background: var(--orange-soft); color: var(--orange-ink); font-family: var(--font-cond); font-weight: 700; font-size: .68em; line-height: 1; padding: 0; cursor: pointer; }
+  .prompt .ann-btn:hover, .prompt .ann-btn[aria-expanded="true"] { background: var(--orange); color: #fff; border-color: var(--orange); }
+  .prompt .ann-btn:focus-visible { outline: 2px solid var(--purple); outline-offset: 2px; }
   .prompt .ann { display: inline-block; background: var(--orange-soft); color: var(--orange-ink); font-family: var(--font-cond); font-weight: 700; font-size: .72em; padding: 1px 7px; border-radius: 5px; margin-left: 6px; vertical-align: middle; text-transform: uppercase; letter-spacing: .05em; }
+  .prompt .ann[hidden] { display: none; }
 
   /* sample (bài mẫu) */
   .sample { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
@@ -413,7 +420,7 @@
 <!-- ================= SHEET 0 ================= -->
 <section class="sheet" id="s0" data-timer="3600" data-tlabel="Cả bài Writing · 60′">
   <div class="sheet-head">
-    <div><span class="eyebrow">Sheet 0</span><h2>Tổng quan bài thi Writing</h2><p class="lead">60 phút · 2 task · 30/115 điểm. Nắm luật chơi trước, luyện sau.</p></div>
+    <div><span class="eyebrow">Sheet 0</span><h2>Tổng quan bài thi Writing</h2><p class="lead">60 phút · 2 task · 30/115 điểm.</p></div>
     <div class="prog">Sheet 1/6</div>
   </div>
 
@@ -429,8 +436,8 @@
     <div class="tablewrap"><table class="stack">
       <thead><tr><th>Task</th><th>Đề yêu cầu gì</th><th>Số từ</th><th>Thời gian gợi ý</th><th>Điểm</th><th>Tỉ trọng VSTEP</th></tr></thead>
       <tbody>
-        <tr><td data-l="Task" class="fn">Task 1 · Email</td><td data-l="Yêu cầu">Viết email/thư <strong>phản hồi một tình huống quen thuộc</strong>: đề cho một đoạn email của bạn bè, thầy cô, công ty… và <strong>3 ý bắt buộc phải trả lời</strong> (gạch đầu dòng).</td><td data-l="Số từ" class="n">≥ 120<br><small>(120–150 là đẹp)</small></td><td data-l="Thời gian" class="n">~20′</td><td data-l="Điểm" class="n">10</td><td data-l="Tỉ trọng" class="n">1/3</td></tr>
-        <tr><td data-l="Task" class="fn">Task 2 · Essay</td><td data-l="Yêu cầu">Viết bài luận <strong>nêu quan điểm</strong> về một chủ đề xã hội – học thuật phổ thông (sức khoẻ, công nghệ, giáo dục, môi trường, đô thị…). Có lập luận + ví dụ.</td><td data-l="Số từ" class="n">≥ 250<br><small>(260–300 là đẹp)</small></td><td data-l="Thời gian" class="n">~40′</td><td data-l="Điểm" class="n">20</td><td data-l="Tỉ trọng" class="n">2/3</td></tr>
+        <tr><td data-l="Task" class="fn">Task 1 · Email</td><td data-l="Yêu cầu">Viết email/thư <strong>phản hồi một tình huống quen thuộc</strong>: đề cho một đoạn email của bạn bè, thầy cô, công ty… và <strong>3 ý bắt buộc phải trả lời</strong> (gạch đầu dòng).</td><td data-l="Số từ" class="n">≥ 120<br><small>(khuyến nghị 120–150)</small></td><td data-l="Thời gian" class="n">~20′</td><td data-l="Điểm" class="n">10</td><td data-l="Tỉ trọng" class="n">1/3</td></tr>
+        <tr><td data-l="Task" class="fn">Task 2 · Essay</td><td data-l="Yêu cầu">Viết bài luận <strong>nêu quan điểm</strong> về một chủ đề xã hội – học thuật phổ thông (sức khoẻ, công nghệ, giáo dục, môi trường, đô thị…). Có lập luận + ví dụ.</td><td data-l="Số từ" class="n">≥ 250<br><small>(khuyến nghị 260–300)</small></td><td data-l="Thời gian" class="n">~40′</td><td data-l="Điểm" class="n">20</td><td data-l="Tỉ trọng" class="n">2/3</td></tr>
       </tbody>
     </table></div>
     <div class="note info"><span class="tag">Công thức</span><p>Điểm Writing VSTEP = <strong>(Task 1 + Task 2 × 2) ÷ 3</strong>. Task 2 nặng gấp đôi – nhưng Task 1 là phần <strong>dễ "ăn" điểm nhất</strong>: khung cố định, ý đề cho sẵn. Không bao giờ bỏ Task 1.</p></div>
@@ -464,12 +471,12 @@
   <section class="block" id="s0-time">
     <h3>4. Dòng thời gian 60 phút</h3>
     <div class="tl">
-      <div class="seg"><div class="t">0′ – 2′</div><p>Đọc đề Task 1, gạch <strong>3 ý</strong>, chọn formal / informal.</p></div>
+      <div class="seg"><div class="t">0′ – 2′</div><ul><li>Đọc đề Task 1</li><li>Gạch <strong>3 ý</strong> bắt buộc</li><li>Chọn formal / informal</li></ul></div>
       <div class="seg"><div class="t">2′ – 17′</div><p>Viết Task 1 theo khung 5 phần.</p></div>
-      <div class="seg"><div class="t">17′ – 20′</div><p>Soát Task 1: thì, s/es, chào – ký, số từ.</p></div>
-      <div class="seg t2"><div class="t">20′ – 25′</div><p>Phân tích đề Task 2: dạng gì? quan điểm? → dàn ý <strong>2 luận điểm + ví dụ</strong>.</p></div>
-      <div class="seg t2"><div class="t">25′ – 52′</div><p>Viết Task 2: 4 đoạn, không dừng sửa vặt.</p></div>
-      <div class="seg t2"><div class="t">52′ – 60′</div><p>Soát Task 2; thiếu từ thì thêm 1 câu ví dụ / kết quả vào thân bài.</p></div>
+      <div class="seg"><div class="t">17′ – 20′</div><ul><li>Thì, s/es</li><li>Chào – ký</li><li>Số từ</li></ul></div>
+      <div class="seg t2"><div class="t">20′ – 25′</div><ul><li>Xác định dạng đề</li><li>Chốt quan điểm</li><li>Dàn ý <strong>2 luận điểm + ví dụ</strong></li></ul></div>
+      <div class="seg t2"><div class="t">25′ – 52′</div><ul><li>Viết 4 đoạn theo khung</li><li>Không dừng sửa vặt</li></ul></div>
+      <div class="seg t2"><div class="t">52′ – 60′</div><ul><li>Soát Task 2</li><li>Thiếu từ → thêm 1 câu ví dụ / kết quả</li></ul></div>
     </div>
     <div class="note warn"><span class="tag">Lưu ý</span><p>Quen tay có thể viết Task 2 trước (nặng điểm hơn) – nhưng phải <strong>khoá đúng 20 phút cho Task 1</strong>. Bấm ▶ trên đồng hồ góc màn hình để tập chia giờ.</p></div>
   </section>
@@ -499,29 +506,29 @@
 <!-- ================= SHEET 1 : TASK 1 ================= -->
 <section class="sheet" id="s1" hidden data-timer="1200" data-tlabel="Task 1 · Email · 20′">
   <div class="sheet-head">
-    <div><span class="eyebrow">Sheet 1</span><h2>Task 1 · Email / thư phản hồi</h2><p class="lead">10 điểm · ≥120 từ · ~20 phút. Đề cho sẵn ý – việc của bạn là trả lời đủ 3 ý, đúng giọng, đúng khung.</p></div>
+    <div><span class="eyebrow">Sheet 1</span><h2>Task 1 · Email / thư phản hồi</h2><p class="lead">10 điểm · ≥120 từ · ~20 phút. Trả lời đủ 3 ý, đúng giọng, đúng khung.</p></div>
     <div class="prog">Sheet 2/6</div>
   </div>
 
   <section class="block" id="s1-anatomy">
     <h3>1. Đề thi trông thế nào</h3>
     <div class="prompt"><span class="ptag">Mẫu đề</span>
-      <p><em>You should spend about 20 minutes on this task.</em> <span class="ann">thời gian gợi ý</span></p>
-      <p>You have received an email from your English-speaking friend, Anna, who is planning to visit your city next month. Read part of her email: <span class="ann">tình huống → người nhận là ai?</span></p>
+      <p><em>You should spend about 20 minutes on this task.</em> <button type="button" class="ann-btn" aria-label="ghi chú" aria-expanded="false">i</button><span class="ann" hidden>thời gian gợi ý</span></p>
+      <p>You have received an email from your English-speaking friend, Anna, who is planning to visit your city next month. Read part of her email: <button type="button" class="ann-btn" aria-label="ghi chú" aria-expanded="false">i</button><span class="ann" hidden>tình huống → người nhận là ai?</span></p>
       <div class="mail">“I'm so excited about my trip! Could you help me with a few things? What's the weather like in your city in November? Which places do you think I should visit? And where would be a good, not too expensive place to stay?”</div>
-      <p>Write an email of reply to Anna, and: <span class="ann">3 ý bắt buộc</span></p>
+      <p>Write an email of reply to Anna, and: <button type="button" class="ann-btn" aria-label="ghi chú" aria-expanded="false">i</button><span class="ann" hidden>3 ý bắt buộc</span></p>
       <ul class="dash"><li>tell her about the weather in November,</li><li>suggest two places she should visit, and</li><li>recommend a place to stay.</li></ul>
-      <p class="instr">Write at least 120 words. Do NOT include your name or any addresses. <span class="ann">≥120 từ · không ghi tên</span></p>
+      <p class="instr">Write at least 120 words. Do NOT include your name or any addresses. <button type="button" class="ann-btn" aria-label="ghi chú" aria-expanded="false">i</button><span class="ann" hidden>≥120 từ · không ghi tên</span></p>
     </div>
-    <div class="note info"><span class="tag">Đọc đề</span><ul><li><strong>Người nhận</strong> quyết định giọng: bạn bè → informal; thầy cô, quản lý, công ty, người lạ → formal.</li><li><strong>3 gạch đầu dòng = 3 đoạn thân bài.</strong> Đề CK2/CH hay ra dạng formal "góp ý – phản hồi" (<span class="en">what you found most useful · one thing to improve · would you attend again</span>) – vẫn là 3 ý.</li><li>Không ghi tên, địa chỉ: dòng ký chỉ là <span class="en">Best wishes,</span> / <span class="en">Yours sincerely,</span>.</li></ul></div>
+    <div class="note info"><span class="tag">Đọc đề</span><ul><li><strong>Người nhận</strong> quyết định giọng: bạn bè → informal; thầy cô, quản lý, công ty, người lạ → formal.</li><li><strong>3 gạch đầu dòng = 3 đoạn thân bài.</strong> Có thể là dạng formal "góp ý – phản hồi" (<span class="en">what you found most useful · one thing to improve · would you attend again</span>) – vẫn là 3 ý.</li><li>Không ghi tên, địa chỉ: dòng ký chỉ là <span class="en">Best wishes,</span> / <span class="en">Yours sincerely,</span>.</li></ul></div>
   </section>
 
   <section class="block" id="s1-time">
     <h3>2. Chia 20 phút</h3>
     <div class="tl c3">
-      <div class="seg"><div class="t">2′</div><p>Đọc đề, gạch 3 ý, quyết định giọng, ghi nhanh 1 chi tiết cho mỗi ý.</p></div>
-      <div class="seg"><div class="t">15′</div><p>Viết theo khung 5 phần. Mỗi ý: <strong>trả lời + 1 chi tiết + 1 lý do</strong>.</p></div>
-      <div class="seg"><div class="t">3′</div><p>Soát: chào – ký đúng giọng, thì, s/es, số từ (~8–9 từ/dòng viết tay).</p></div>
+      <div class="seg"><div class="t">2′</div><ul><li>Đọc đề, gạch 3 ý</li><li>Quyết định giọng</li><li>Ghi nhanh 1 chi tiết cho mỗi ý</li></ul></div>
+      <div class="seg"><div class="t">15′</div><ul><li>Viết theo khung 5 phần</li><li>Mỗi ý: <strong>trả lời + chi tiết + lý do</strong></li></ul></div>
+      <div class="seg"><div class="t">3′</div><ul><li>Chào – ký đúng giọng</li><li>Thì, s/es</li><li>Đủ số từ (~8–9 từ/dòng viết tay)</li></ul></div>
     </div>
   </section>
 
@@ -567,7 +574,7 @@
         <tr><td data-l="Chức năng" class="fn">Cảm ơn</td><td data-l="Cụm"><span class="en">I'm writing to thank you for … · It was so kind of you to … · I really appreciate … · To show my appreciation, …</span></td></tr>
         <tr><td data-l="Chức năng" class="fn">Hỏi thông tin · formal</td><td data-l="Cụm"><span class="en">I would like to know … · Could you tell me whether …? · I would be grateful if you could … · Is it possible to …?</span></td></tr>
         <tr><td data-l="Chức năng" class="fn">Phàn nàn · góp ý · formal</td><td data-l="Cụm"><span class="en">I am writing to complain about … · Unfortunately, … · I was disappointed that … · One thing that could be improved is … · It would be better if … · I would like to request a refund / a replacement.</span></td></tr>
-        <tr><td data-l="Chức năng" class="fn">Phản hồi – đánh giá <small>(đề CK2/CH)</small></td><td data-l="Cụm"><span class="en">The part I found most useful was … · What I liked most about … was … · Overall, I was very satisfied with … · I would certainly recommend … because …</span></td></tr>
+        <tr><td data-l="Chức năng" class="fn">Phản hồi – đánh giá</td><td data-l="Cụm"><span class="en">The part I found most useful was … · What I liked most about … was … · Overall, I was very satisfied with … · I would certainly recommend … because …</span></td></tr>
         <tr><td data-l="Chức năng" class="fn">Kết · informal</td><td data-l="Cụm"><span class="en">Let me know … · I can't wait to see you. · Hope to hear from you soon. · Write back soon! · Take care.</span></td></tr>
         <tr><td data-l="Chức năng" class="fn">Kết · formal</td><td data-l="Cụm"><span class="en">I look forward to hearing from you. · I look forward to your reply. · Thank you in advance for your help. · Please do not hesitate to contact me if you need any further information.</span></td></tr>
       </tbody>
@@ -603,7 +610,7 @@
 
     <!-- B -->
     <div class="grid-2" style="margin-bottom:22px">
-      <div class="prompt" id="p-t1b"><span class="ptag">Dạng B · Phản hồi – góp ý (formal, kiểu đề CK2/CH)</span>
+      <div class="prompt" id="p-t1b"><span class="ptag">Dạng B · Phản hồi – góp ý (formal)</span>
         <p>You recently attended a two-day workshop on communication skills for health workers, organised by the training centre CareTalk. After the event, you received this email from the coordinator, Mr Lewis:</p>
         <div class="mail">“Thank you for taking part in our workshop. To help us improve, could you tell us which part of the workshop you found most useful, mention one thing we could do better, and let us know whether you would join another CareTalk event in the future?”</div>
         <p>Write an email of reply to Mr Lewis, and:</p>
@@ -770,10 +777,10 @@
   <section class="block" id="s2-anatomy">
     <h3>1. Đề thi trông thế nào</h3>
     <div class="prompt"><span class="ptag">Mẫu đề</span>
-      <p><em>You should spend about 40 minutes on this task. Read the following topic:</em> <span class="ann">thời gian gợi ý</span></p>
-      <div class="mail">More and more people are moving from the countryside to live in cities. <span class="ann">bối cảnh → paraphrase vào mở bài</span><br>What problems can this cause? How can these problems be solved? <span class="ann">câu hỏi → dạng đề · số phần phải trả lời</span></div>
-      <p>Write an essay to express your point of view. Give reasons for your answer and include any relevant examples from your knowledge or experience. <span class="ann">cần lý do + ví dụ</span></p>
-      <p class="instr">Write at least 250 words. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar. <span class="ann">≥250 từ · 4 tiêu chí</span></p>
+      <p><em>You should spend about 40 minutes on this task. Read the following topic:</em> <button type="button" class="ann-btn" aria-label="ghi chú" aria-expanded="false">i</button><span class="ann" hidden>thời gian gợi ý</span></p>
+      <div class="mail">More and more people are moving from the countryside to live in cities. <button type="button" class="ann-btn" aria-label="ghi chú" aria-expanded="false">i</button><span class="ann" hidden>bối cảnh → paraphrase vào mở bài</span><br>What problems can this cause? How can these problems be solved? <button type="button" class="ann-btn" aria-label="ghi chú" aria-expanded="false">i</button><span class="ann" hidden>câu hỏi → dạng đề · số phần phải trả lời</span></div>
+      <p>Write an essay to express your point of view. Give reasons for your answer and include any relevant examples from your knowledge or experience. <button type="button" class="ann-btn" aria-label="ghi chú" aria-expanded="false">i</button><span class="ann" hidden>cần lý do + ví dụ</span></p>
+      <p class="instr">Write at least 250 words. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar. <button type="button" class="ann-btn" aria-label="ghi chú" aria-expanded="false">i</button><span class="ann" hidden>≥250 từ · 4 tiêu chí</span></p>
     </div>
     <div class="note info"><span class="tag">Đọc đề</span><ul><li>Gạch <strong>từ khoá chủ đề</strong> (<span class="en">moving from the countryside to cities</span>) và <strong>từ khoá yêu cầu</strong> (<span class="en">problems? solved?</span> → dạng Vấn đề – Giải pháp, phải trả lời <strong>cả hai</strong>).</li><li>Đề thi kết thúc học phần hay ra: vấn đề – giải pháp (điện thoại, ít vận động, di cư), lợi – hại (internet, công nghệ y tế, giao tiếp online), đồng ý – không đồng ý (phòng bệnh hơn chữa bệnh).</li></ul></div>
   </section>
@@ -781,10 +788,10 @@
   <section class="block" id="s2-time">
     <h3>2. Chia 40 phút</h3>
     <div class="tl c4">
-      <div class="seg t2"><div class="t">5′ · Phân tích</div><p>Dạng đề? Từ khoá? Chốt quan điểm / hướng viết <strong>ngay</strong> – chọn hướng dễ tìm ý, không cần là ý "thật".</p></div>
-      <div class="seg t2"><div class="t">5′ · Dàn ý</div><p>2 luận điểm, mỗi luận điểm 1 lý do + 1 ví dụ. Ghi tiếng Việt cũng được.</p></div>
-      <div class="seg t2"><div class="t">25′ · Viết</div><p>4 đoạn theo khung; bám dàn ý; không dừng sửa vặt.</p></div>
-      <div class="seg t2"><div class="t">5′ · Soát</div><p>Đúng đề? đủ đoạn? đủ từ? thì – s/es – mạo từ – từ nối.</p></div>
+      <div class="seg t2"><div class="t">5′ · Phân tích</div><ul><li>Xác định dạng đề</li><li>Gạch từ khoá</li><li>Chốt quan điểm / hướng viết ngay</li></ul></div>
+      <div class="seg t2"><div class="t">5′ · Dàn ý</div><ul><li><strong>2 luận điểm</strong></li><li>Mỗi luận điểm: 1 lý do + 1 ví dụ</li></ul></div>
+      <div class="seg t2"><div class="t">25′ · Viết</div><ul><li>4 đoạn theo khung</li><li>Bám dàn ý</li><li>Không dừng sửa vặt</li></ul></div>
+      <div class="seg t2"><div class="t">5′ · Soát</div><ul><li>Đúng đề, đủ đoạn, đủ từ</li><li>Thì, s/es, mạo từ, từ nối</li></ul></div>
     </div>
   </section>
 
@@ -1010,7 +1017,7 @@
 <!-- ================= SHEET 3 : LUYỆN TẬP ================= -->
 <section class="sheet" id="s3" hidden data-timer="1200" data-tlabel="Luyện tập · 20′">
   <div class="sheet-head">
-    <div><span class="eyebrow">Sheet 3</span><h2>Luyện tập – viết, đếm từ, tự chấm chữa</h2><p class="lead">Chọn đề → bấm <em>Bắt đầu</em> (đồng hồ chạy) → viết → <em>Nộp bài</em>. Máy soát hình thức và lỗi phổ biến, bạn tự chấm nội dung, rồi so với bài mẫu.</p></div>
+    <div><span class="eyebrow">Sheet 3</span><h2>Luyện tập – viết, đếm từ, tự chấm chữa</h2><p class="lead">Chọn đề → bấm <em>Bắt đầu</em> → viết → <em>Nộp bài</em>. Máy soát hình thức và lỗi phổ biến; bạn tự chấm nội dung rồi so với bài mẫu.</p></div>
     <div class="prog">Sheet 4/6</div>
   </div>
 
@@ -1072,11 +1079,11 @@
     <div class="prog">Sheet 5/6</div>
   </div>
 
-  <div class="note warn"><span class="tag">Trong phòng thi</span><ul><li>Writing là <strong>Bài 2</strong>, làm sau Reading, trước Listening; viết tay trên giấy thi, không có nháp riêng – dàn ý ghi ngắn ở lề rồi gạch bỏ.</li><li>Đề luôn ghi <span class="en">Task 1 (10 marks) · Task 2 (20 marks)</span>, thời gian gợi ý 20′ / 40′ và <span class="en">Do NOT include your name or any addresses</span>.</li><li>Đề dành cho CK1 (B1) và CK2/CH (B2) <strong>cùng một khuôn</strong>; khác nhau ở chủ đề (B2 thiên về nghề nghiệp – y tế) và giọng Task 1 (B2 hay ra formal).</li></ul></div>
+  <div class="note warn"><span class="tag">Trong phòng thi</span><ul><li>Writing là <strong>Bài 2</strong>, làm sau Reading, trước Listening; viết tay trên giấy thi, không có nháp riêng – dàn ý ghi ngắn ở lề rồi gạch bỏ.</li><li>Đề luôn ghi <span class="en">Task 1 (10 marks) · Task 2 (20 marks)</span>, thời gian gợi ý 20′ / 40′ và <span class="en">Do NOT include your name or any addresses</span>.</li><li>Đề B1 và B2 <strong>cùng một khuôn</strong>; khác nhau ở chủ đề (B2 thiên về nghề nghiệp – y tế) và giọng Task 1 (B2 hay ra formal).</li></ul></div>
 
   <!-- ĐỀ 1 -->
   <section class="block" id="ex1">
-    <h3>Đề số 1 · khuôn B1 (CK1)</h3>
+    <h3>Đề số 1 · khuôn B1</h3>
     <article class="exam">
       <header class="exam-head"><div class="h1">Bài 2: Viết (Writing)</div><div class="meta"><b>60 minutes – 2 parts</b> · Task 1: 10 marks · Task 2: 20 marks · Total: 30 marks</div></header>
       <div class="exam-body">
@@ -1125,7 +1132,7 @@
 
   <!-- ĐỀ 2 -->
   <section class="block" id="ex2">
-    <h3>Đề số 2 · khuôn B2 (CK2 / CH)</h3>
+    <h3>Đề số 2 · khuôn B2</h3>
     <article class="exam">
       <header class="exam-head"><div class="h1">Bài 2: Viết (Writing)</div><div class="meta"><b>60 minutes – 2 parts</b> · Task 1: 10 marks · Task 2: 20 marks · Total: 30 marks</div></header>
       <div class="exam-body">
@@ -1174,7 +1181,7 @@
 
   <!-- ĐỀ 3 -->
   <section class="block" id="ex3">
-    <h3>Đề số 3 · khuôn B2 (CK2 / CH)</h3>
+    <h3>Đề số 3 · khuôn B2</h3>
     <article class="exam">
       <header class="exam-head"><div class="h1">Bài 2: Viết (Writing)</div><div class="meta"><b>60 minutes – 2 parts</b> · Task 1: 10 marks · Task 2: 20 marks · Total: 30 marks</div></header>
       <div class="exam-body">
@@ -1231,10 +1238,10 @@
   </div>
 
   <div class="tl" style="margin-bottom:18px">
-    <div class="seg"><div class="t">0–2′</div><p>Đọc đề T1 · gạch 3 ý · chọn giọng</p></div>
+    <div class="seg"><div class="t">0–2′</div><ul><li>Đọc đề T1</li><li>Gạch 3 ý</li><li>Chọn giọng</li></ul></div>
     <div class="seg"><div class="t">2–17′</div><p>Viết T1 · 5 phần</p></div>
     <div class="seg"><div class="t">17–20′</div><p>Soát T1</p></div>
-    <div class="seg t2"><div class="t">20–25′</div><p>Dạng đề T2 · dàn ý 2 ý</p></div>
+    <div class="seg t2"><div class="t">20–25′</div><ul><li>Dạng đề T2</li><li>Dàn ý 2 ý</li></ul></div>
     <div class="seg t2"><div class="t">25–52′</div><p>Viết T2 · 4 đoạn</p></div>
     <div class="seg t2"><div class="t">52–60′</div><p>Soát T2</p></div>
   </div>
@@ -1328,6 +1335,12 @@
   /* ---------- theme ---------- */
   const root = document.documentElement;
   const th = LS.get('theme', null); if (th) root.setAttribute('data-theme', th);
+  document.addEventListener('click', e => {
+    const b = e.target.closest('.ann-btn'); if (!b) return;
+    const note = b.nextElementSibling; if (!note || !note.classList.contains('ann')) return;
+    const open = note.hasAttribute('hidden');
+    note.toggleAttribute('hidden', !open); b.setAttribute('aria-expanded', String(open));
+  });
   $('#themeBtn').addEventListener('click', () => {
     const cur = root.getAttribute('data-theme');
     const next = cur === 'dark' ? 'light' : cur === 'light' ? null : 'dark';
@@ -1629,7 +1642,7 @@
       const paras = blocks.length;
       if (paras < 3) { ORG -= 2; add('ORG', false, `Chỉ ${paras} đoạn – bài luận cần 4 đoạn (mở – thân 1 – thân 2 – kết).`); R.fixes.push('Chia bài thành 4 đoạn, xuống dòng giữa các đoạn.'); }
       else if (paras === 3) { ORG -= 1; add('ORG', false, '3 đoạn – nên tách thân bài thành 2 đoạn, mỗi đoạn một luận điểm.'); }
-      else if (paras > 6) { ORG -= 0.5; add('ORG', false, `${paras} đoạn – hơi vụn; 4–5 đoạn là đẹp.`); }
+      else if (paras > 6) { ORG -= 0.5; add('ORG', false, `${paras} đoạn – hơi vụn; nên gộp còn 4–5 đoạn.`); }
       else add('ORG', true, `${paras} đoạn – đúng khung.`);
       const intro = blocks[0] || '', concl = blocks[blocks.length - 1] || '';
       const thesisRe = /(i (completely |strongly |totally |partly |partially )?(agree|disagree|believe|think)|in my opinion|my view|this essay will|will discuss|will examine|will look at|both views|advantages and disadvantages|benefits and drawbacks|problems and|causes and|solutions|from my point of view|it seems to me)/i;
