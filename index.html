@@ -187,7 +187,8 @@
   .tl .seg li::before { content: "–"; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
 
   /* steps / flow */
-  .flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+  .flow { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .flow .step { flex: 1 1 220px; max-width: 260px; }
   .flow .step { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 16px 14px; box-shadow: var(--shadow); }
   .flow .step .k { display: inline-block; font-family: var(--font-cond); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: .72em; color: #3A1E00; background: linear-gradient(135deg, var(--orange), var(--gold)); padding: 3px 9px; border-radius: 6px; margin-bottom: 8px; }
   .flow .step h4 { margin-bottom: 4px; }
@@ -437,7 +438,7 @@
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="big">60<small>phút</small></div><div class="lbl">Cả 2 task, viết tay trên giấy. Không có thời gian riêng cho từng task – tự chia.</div></div>
+    <div class="stat"><div class="big">60<small>phút</small></div><div class="lbl">Cả 2 task, viết tay trên giấy.</div></div>
     <div class="stat"><div class="big">10<small>điểm · Task 1</small></div><div class="lbl">Email / thư phản hồi · <span class="num">≥ 120</span> từ · ~20 phút</div></div>
     <div class="stat"><div class="big">20<small>điểm · Task 2</small></div><div class="lbl">Bài luận nêu quan điểm · <span class="num">≥ 250</span> từ · ~40 phút</div></div>
     <div class="stat"><div class="big">4<small>tiêu chí</small></div><div class="lbl">Task Fulfillment · Organization · Vocabulary · Grammar</div></div>
@@ -452,7 +453,6 @@
         <tr><td data-l="Task" class="fn">Task 2 · Essay</td><td data-l="Yêu cầu">Viết bài luận <strong>nêu quan điểm</strong> về một chủ đề xã hội – học thuật phổ thông (sức khoẻ, công nghệ, giáo dục, môi trường, đô thị…). Có lập luận + ví dụ.</td><td data-l="Số từ" class="n">≥ 250<br><small>(khuyến nghị 260–300)</small></td><td data-l="Thời gian" class="n">~40′</td><td data-l="Điểm" class="n">20</td><td data-l="Tỉ trọng" class="n">2/3</td></tr>
       </tbody>
     </table></div>
-    <div class="note info"><span class="tag">Công thức</span><p>Điểm Writing VSTEP = <strong>(Task 1 + Task 2 × 2) ÷ 3</strong>. Task 2 nặng gấp đôi – nhưng Task 1 là phần <strong>dễ "ăn" điểm nhất</strong>: khung cố định, ý đề cho sẵn. Không bao giờ bỏ Task 1.</p></div>
   </section>
 
   <section class="block" id="s0-criteria">
@@ -463,7 +463,6 @@
       <div class="card purple"><span class="k">Vocabulary</span><span class="pct">~15%</span><h4>Từ vựng</h4><ul><li>Đủ từ cho chủ đề?</li><li>Đúng ngữ cảnh, đúng giọng (formal/informal)?</li><li>Ít lặp, ít lỗi chính tả?</li></ul><p>→ Paraphrase đề; dùng <strong>collocation quen tay</strong>.</p></div>
       <div class="card accent"><span class="k">Grammar</span><span class="pct">~25%</span><h4>Ngữ pháp</h4><ul><li>Đa dạng câu: đơn – ghép – phức?</li><li>Đúng thì, hoà hợp chủ ngữ – động từ?</li><li>Lỗi không cản trở người đọc?</li></ul><p>→ Mỗi đoạn <strong>1–2 câu phức "ăn chắc"</strong>, còn lại câu vừa sức.</p></div>
     </div>
-    <p class="vn" style="margin-top:10px">Tỉ trọng % là ước lượng phổ biến trong tài liệu luyện thi; đề thi kết thúc học phần chấm theo đúng 4 tiêu chí này trên thang 10 (Task 1) và 20 (Task 2).</p>
   </section>
 
   <section class="block" id="s0-bands">
@@ -477,7 +476,6 @@
         <tr><td data-l="Tiêu chí" class="fn">Ngữ pháp</td><td data-l="B1">Chủ yếu câu đơn; câu phức hay sai.</td><td data-l="B2">Nhiều câu phức <strong>đúng</strong>; lỗi nhỏ không ảnh hưởng nghĩa.</td></tr>
       </tbody>
     </table></div>
-    <div class="note good"><span class="tag">Mục tiêu</span><p>Trang này dạy <strong>khung B1 "ăn chắc"</strong> (đủ ý, đủ từ, đúng bố cục) rồi chỉ cách <strong>nâng lên B2</strong> bằng câu phức, collocation và ví dụ. Dưới 120 / 250 từ hoặc lạc đề là mất điểm nặng nhất – tránh trước.</p></div>
   </section>
 
   <section class="block" id="s0-time">
@@ -490,11 +488,11 @@
       <div class="seg t2"><div class="t">25′ – 52′</div><ul><li>Viết 4 đoạn theo khung</li><li>Không dừng sửa vặt</li></ul></div>
       <div class="seg t2"><div class="t">52′ – 60′</div><ul><li>Soát Task 2</li><li>Thiếu từ → thêm 1 câu ví dụ / kết quả</li></ul></div>
     </div>
-    <div class="note warn"><span class="tag">Lưu ý</span><p>Quen tay có thể viết Task 2 trước (nặng điểm hơn) – nhưng phải <strong>khoá đúng 20 phút cho Task 1</strong>. Bấm ▶ trên đồng hồ góc màn hình để tập chia giờ.</p></div>
+    <div class="note warn"><span class="tag">Lưu ý</span><p>Quen tay có thể viết Task 2 trước (nặng điểm hơn) – nhưng phải <strong>khoá đúng 20 phút cho Task 1</strong>.</p></div>
   </section>
 
   <section class="block" id="s0-rules">
-    <h3>5. Bảy luật vàng</h3>
+    <h3>5. 7 quy tắc</h3>
     <div class="flow">
       <div class="step"><span class="k">1</span><h4>Gạch chân mọi yêu cầu</h4><p>Thiếu 1 ý là mất điểm Task Fulfillment ngay. Trả lời đủ trước, "trang trí" sau.</p></div>
       <div class="step"><span class="k">2</span><h4>Đủ số từ</h4><p>Dưới mức tối thiểu bị trừ. Đích: 120–150 từ / 260–300 từ.</p></div>
@@ -545,7 +543,7 @@
   </section>
 
   <section class="block" id="s1-tone">
-    <h3>3. Formal hay informal? Quyết định trong 10 giây</h3>
+    <h3>3. Formal hay informal?</h3>
     <div class="tablewrap"><table class="stack">
       <thead><tr><th></th><th>Informal – thân mật</th><th>Formal – trang trọng</th></tr></thead>
       <tbody>
@@ -560,7 +558,7 @@
   </section>
 
   <section class="block" id="s1-frame">
-    <h3>4. Khung 5 phần – dùng cho mọi đề</h3>
+    <h3>4. Khung 5 phần</h3>
     <div class="frame">
       <div class="row"><div class="lb">1 · Chào<small>1 dòng</small></div><div class="tx"><span class="en">Dear Anna,</span> · <span class="en">Dear Mr Lewis,</span> · <span class="en">Dear Sir or Madam,</span></div></div>
       <div class="row"><div class="lb">2 · Mở<small>1–2 câu</small></div><div class="tx">Cảm ơn / lý do viết: <span class="en">Thanks for your email. It was great to hear that…</span> · <span class="en">Thank you for your email. I am writing to…</span></div></div>
@@ -568,7 +566,7 @@
       <div class="row"><div class="lb">4 · Kết<small>1–2 câu</small></div><div class="tx"><span class="en">Let me know if you need anything else. I can't wait to see you!</span> · <span class="en">I look forward to hearing from you.</span></div></div>
       <div class="row"><div class="lb">5 · Ký<small>1 dòng</small></div><div class="tx"><span class="en">Best wishes,</span> · <span class="en">Love,</span> · <span class="en">Yours sincerely,</span> · <span class="en">Yours faithfully,</span> — <strong>không ghi tên</strong></div></div>
     </div>
-    <p class="vn" style="margin-top:10px">Cộng lại ≈ 11–13 câu ≈ 130–150 từ. Viết tay: xuống dòng sau lời chào, mỗi ý một đoạn, dòng ký riêng.</p>
+    <p class="vn" style="margin-top:10px">Cộng lại ≈ 11–13 câu ≈ 130–150 từ.</p>
   </section>
 
   <section class="block" id="s1-bank">
@@ -576,19 +574,19 @@
     <div class="tablewrap"><table class="stack">
       <thead><tr><th>Chức năng</th><th>Cụm dùng lại</th></tr></thead>
       <tbody>
-        <tr><td data-l="Chức năng" class="fn">Mở đầu · informal</td><td data-l="Cụm"><span class="en">Thanks for your email – it was great to hear from you. · Sorry for not writing sooner. · I hope you're well. · It's lovely to hear that…</span></td></tr>
-        <tr><td data-l="Chức năng" class="fn">Mở đầu · formal</td><td data-l="Cụm"><span class="en">Thank you for your email regarding… · I am writing in response to your email of 5 May. · I am writing to (ask for / apply for / complain about / thank you for)…</span></td></tr>
-        <tr><td data-l="Chức năng" class="fn">Chuyển sang từng ý</td><td data-l="Cụm"><span class="en">First of all, … · As for your first question, … · Regarding …, · About the …, · Secondly, … · Finally, … · One more thing – …</span></td></tr>
-        <tr><td data-l="Chức năng" class="fn">Cung cấp thông tin / mô tả</td><td data-l="Cụm"><span class="en">It is usually … · There are plenty of … · … is only ten minutes from … · It costs about … · The best place for … is …</span></td></tr>
-        <tr><td data-l="Chức năng" class="fn">Gợi ý – khuyên</td><td data-l="Cụm"><span class="en">I'd recommend (V-ing / N) · You should definitely … · Why don't you …? · How about (V-ing)? · It would be a good idea to … · If I were you, I would …</span></td></tr>
-        <tr><td data-l="Chức năng" class="fn">Mời</td><td data-l="Cụm"><span class="en">I'm writing to invite you to … · Would you like to …? · I'd love you to come … · It would be great if you could … · It will be held at … on …</span></td></tr>
-        <tr><td data-l="Chức năng" class="fn">Xin lỗi</td><td data-l="Cụm"><span class="en">I'm really sorry, but I'm afraid I can't … · I apologise for … · The reason is that … · I feel terrible about this. · To make up for it, …</span></td></tr>
-        <tr><td data-l="Chức năng" class="fn">Cảm ơn</td><td data-l="Cụm"><span class="en">I'm writing to thank you for … · It was so kind of you to … · I really appreciate … · To show my appreciation, …</span></td></tr>
-        <tr><td data-l="Chức năng" class="fn">Hỏi thông tin · formal</td><td data-l="Cụm"><span class="en">I would like to know … · Could you tell me whether …? · I would be grateful if you could … · Is it possible to …?</span></td></tr>
-        <tr><td data-l="Chức năng" class="fn">Phàn nàn · góp ý · formal</td><td data-l="Cụm"><span class="en">I am writing to complain about … · Unfortunately, … · I was disappointed that … · One thing that could be improved is … · It would be better if … · I would like to request a refund / a replacement.</span></td></tr>
-        <tr><td data-l="Chức năng" class="fn">Phản hồi – đánh giá</td><td data-l="Cụm"><span class="en">The part I found most useful was … · What I liked most about … was … · Overall, I was very satisfied with … · I would certainly recommend … because …</span></td></tr>
-        <tr><td data-l="Chức năng" class="fn">Kết · informal</td><td data-l="Cụm"><span class="en">Let me know … · I can't wait to see you. · Hope to hear from you soon. · Write back soon! · Take care.</span></td></tr>
-        <tr><td data-l="Chức năng" class="fn">Kết · formal</td><td data-l="Cụm"><span class="en">I look forward to hearing from you. · I look forward to your reply. · Thank you in advance for your help. · Please do not hesitate to contact me if you need any further information.</span></td></tr>
+        <tr><td data-l="Chức năng" class="fn">Mở đầu · informal</td><td data-l="Cụm"><ul><li><span class="en">Thanks for your email – it was great to hear from you.</span></li><li><span class="en">Sorry for not writing sooner.</span></li><li><span class="en">I hope you're well.</span></li><li><span class="en">It's lovely to hear that…</span></li></ul></td></tr>
+        <tr><td data-l="Chức năng" class="fn">Mở đầu · formal</td><td data-l="Cụm"><ul><li><span class="en">Thank you for your email regarding…</span></li><li><span class="en">I am writing in response to your email of 5 May.</span></li><li><span class="en">I am writing to (ask for / apply for / complain about / thank you for)…</span></li></ul></td></tr>
+        <tr><td data-l="Chức năng" class="fn">Chuyển sang từng ý</td><td data-l="Cụm"><ul><li><span class="en">First of all, …</span></li><li><span class="en">As for your first question, …</span></li><li><span class="en">Regarding …,</span></li><li><span class="en">About the …,</span></li><li><span class="en">Secondly, …</span></li><li><span class="en">Finally, …</span></li><li><span class="en">One more thing – …</span></li></ul></td></tr>
+        <tr><td data-l="Chức năng" class="fn">Cung cấp thông tin / mô tả</td><td data-l="Cụm"><ul><li><span class="en">It is usually …</span></li><li><span class="en">There are plenty of …</span></li><li><span class="en">… is only ten minutes from …</span></li><li><span class="en">It costs about …</span></li><li><span class="en">The best place for … is …</span></li></ul></td></tr>
+        <tr><td data-l="Chức năng" class="fn">Gợi ý – khuyên</td><td data-l="Cụm"><ul><li><span class="en">I'd recommend (V-ing / N)</span></li><li><span class="en">You should definitely …</span></li><li><span class="en">Why don't you …?</span></li><li><span class="en">How about (V-ing)?</span></li><li><span class="en">It would be a good idea to …</span></li><li><span class="en">If I were you, I would …</span></li></ul></td></tr>
+        <tr><td data-l="Chức năng" class="fn">Mời</td><td data-l="Cụm"><ul><li><span class="en">I'm writing to invite you to …</span></li><li><span class="en">Would you like to …?</span></li><li><span class="en">I'd love you to come …</span></li><li><span class="en">It would be great if you could …</span></li><li><span class="en">It will be held at … on …</span></li></ul></td></tr>
+        <tr><td data-l="Chức năng" class="fn">Xin lỗi</td><td data-l="Cụm"><ul><li><span class="en">I'm really sorry, but I'm afraid I can't …</span></li><li><span class="en">I apologise for …</span></li><li><span class="en">The reason is that …</span></li><li><span class="en">I feel terrible about this.</span></li><li><span class="en">To make up for it, …</span></li></ul></td></tr>
+        <tr><td data-l="Chức năng" class="fn">Cảm ơn</td><td data-l="Cụm"><ul><li><span class="en">I'm writing to thank you for …</span></li><li><span class="en">It was so kind of you to …</span></li><li><span class="en">I really appreciate …</span></li><li><span class="en">To show my appreciation, …</span></li></ul></td></tr>
+        <tr><td data-l="Chức năng" class="fn">Hỏi thông tin · formal</td><td data-l="Cụm"><ul><li><span class="en">I would like to know …</span></li><li><span class="en">Could you tell me whether …?</span></li><li><span class="en">I would be grateful if you could …</span></li><li><span class="en">Is it possible to …?</span></li></ul></td></tr>
+        <tr><td data-l="Chức năng" class="fn">Phàn nàn · góp ý · formal</td><td data-l="Cụm"><ul><li><span class="en">I am writing to complain about …</span></li><li><span class="en">Unfortunately, …</span></li><li><span class="en">I was disappointed that …</span></li><li><span class="en">One thing that could be improved is …</span></li><li><span class="en">It would be better if …</span></li><li><span class="en">I would like to request a refund / a replacement.</span></li></ul></td></tr>
+        <tr><td data-l="Chức năng" class="fn">Phản hồi – đánh giá</td><td data-l="Cụm"><ul><li><span class="en">The part I found most useful was …</span></li><li><span class="en">What I liked most about … was …</span></li><li><span class="en">Overall, I was very satisfied with …</span></li><li><span class="en">I would certainly recommend … because …</span></li></ul></td></tr>
+        <tr><td data-l="Chức năng" class="fn">Kết · informal</td><td data-l="Cụm"><ul><li><span class="en">Let me know …</span></li><li><span class="en">I can't wait to see you.</span></li><li><span class="en">Hope to hear from you soon.</span></li><li><span class="en">Write back soon!</span></li><li><span class="en">Take care.</span></li></ul></td></tr>
+        <tr><td data-l="Chức năng" class="fn">Kết · formal</td><td data-l="Cụm"><ul><li><span class="en">I look forward to hearing from you.</span></li><li><span class="en">I look forward to your reply.</span></li><li><span class="en">Thank you in advance for your help.</span></li><li><span class="en">Please do not hesitate to contact me if you need any further information.</span></li></ul></td></tr>
       </tbody>
     </table></div>
   </section>
